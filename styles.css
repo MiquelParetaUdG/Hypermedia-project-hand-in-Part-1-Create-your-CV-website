@@ -1,0 +1,431 @@
+/* =========================================================
+   styles.css - Online CV of Pere Pi Serra
+
+   The sections follow the order of the course slides:
+    1. CSS variables
+    2. Inheritance and box model
+    3. Text formatting
+    4. Links and lists
+    5. Tables
+    6. Box control (width, padding, margin, border, display)
+    7. Positioning (relative, absolute, sticky, z-index)
+    8. Flexbox
+    9. Grid layout
+   10. Transitions
+   11. Web responsive (@media, mobile first)
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. CSS VARIABLES
+   Declared with -- and used with var(); calc() for spacing
+   --------------------------------------------------------- */
+:root {
+    --navy: #174180;
+    --navy-dark: #12346f;
+    --sky: #56ccf2;
+    --ink: #4f4f4f;
+    --muted: #828282;
+    --line: #e3e7ee;
+    --white: #ffffff;
+    --base-space: 8px;
+}
+
+
+/* ---------------------------------------------------------
+   2. INHERITANCE AND BOX MODEL
+   box-sizing is set once on html and forced down to every
+   element with the value "inherit"
+   --------------------------------------------------------- */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: var(--white);
+}
+
+
+/* ---------------------------------------------------------
+   3. TEXT FORMATTING
+   font-family (list of fonts), font-size, font-weight,
+   font-style, line-height, color
+   --------------------------------------------------------- */
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.9rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+h1 strong {
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+p {
+    margin: 0;
+}
+
+#job-title {
+    font-size: 1.35rem;
+    font-weight: 300;
+}
+
+.dates {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.dates span {
+    font-weight: normal;
+}
+
+.place {
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+.place strong {
+    font-weight: 600;
+}
+
+.organization {
+    font-weight: normal;
+}
+
+.description {
+    margin-top: var(--base-space);
+    font-size: 0.85rem;
+}
+
+abbr {
+    text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   4. LINKS AND LISTS
+   list-style-type and the pseudo-class :hover
+   --------------------------------------------------------- */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid var(--sky);
+    outline-offset: 3px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+/* ---------------------------------------------------------
+   5. TABLES
+   Languages table: th[scope='row'] for the language name
+   --------------------------------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 3px 0;
+    text-align: left;
+    font-size: 0.8rem;
+}
+
+th[scope='row'] {
+    width: 45%;
+    font-weight: normal;
+}
+
+td {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* ---------------------------------------------------------
+   6. BOX CONTROL
+   Sidebar (aside), main content, photo, icons, footer
+   --------------------------------------------------------- */
+#sidebar {
+    padding: calc(var(--base-space) * 4) calc(var(--base-space) * 3.5);
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+#sidebar>*+* {
+    margin-top: calc(var(--base-space) * 3.5);
+}
+
+#sidebar h2 {
+    margin-bottom: calc(var(--base-space) * 1.5);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--sky);
+}
+
+#photo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: var(--navy-dark);
+}
+
+#photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#identity {
+    text-align: center;
+}
+
+#contact {
+    font-size: 0.9rem;
+    color: var(--sky);
+}
+
+#contact li+li {
+    margin-top: var(--base-space);
+}
+
+#contact img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+#profile {
+    font-size: 0.8rem;
+    line-height: 1.55;
+}
+
+#references li+li {
+    margin-top: calc(var(--base-space) * 1.5);
+}
+
+#references img {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+}
+
+#references a {
+    font-size: 0.8rem;
+}
+
+#content h2 {
+    margin-bottom: calc(var(--base-space) * 2.5);
+    font-weight: 700;
+    color: var(--navy);
+}
+
+#content section {
+    padding: calc(var(--base-space) * 3) calc(var(--base-space) * 2.5) 0;
+    scroll-margin-top: 60px;
+}
+
+.entry {
+    margin-bottom: calc(var(--base-space) * 3);
+}
+
+.achievements {
+    margin-top: var(--base-space);
+    font-size: 0.85rem;
+}
+
+.achievements li+li {
+    margin-top: calc(var(--base-space) * 0.75);
+}
+
+#footer {
+    padding: calc(var(--base-space) * 2);
+    background-color: var(--navy-dark);
+    color: var(--white);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   7. POSITIONING
+   - sticky: the menu stays at the top while scrolling
+   - relative + absolute: custom bullet of each achievement
+   - z-index: the menu is shown above the scrolling content
+   --------------------------------------------------------- */
+#menu {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--line);
+}
+
+.achievements li {
+    position: relative;
+    padding-left: 18px;
+}
+
+.achievements li::before {
+    content: "";
+    position: absolute;
+    top: 0.6em;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--sky);
+}
+
+
+/* ---------------------------------------------------------
+   8. FLEXBOX
+   - menu items in a row
+   - icon and text aligned in contact and references
+   - entry title on the left and dates on the right
+   --------------------------------------------------------- */
+#menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: var(--base-space) calc(var(--base-space) * 2.5);
+}
+
+#menu li+li {
+    margin-left: calc(var(--base-space) * 3);
+}
+
+#menu a {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+#contact li,
+#references li {
+    display: flex;
+    align-items: center;
+}
+
+.entry-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+
+/* ---------------------------------------------------------
+   9. GRID LAYOUT
+   Skills in two columns (1fr 1fr) with a gap between cells
+   --------------------------------------------------------- */
+#skills ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 16px;
+    font-size: 0.8rem;
+}
+
+
+/* ---------------------------------------------------------
+   10. TRANSITIONS
+   Smooth change of colour when the mouse is over a link
+   --------------------------------------------------------- */
+#menu a,
+#contact a {
+    transition: color 0.3s;
+}
+
+#menu a:hover {
+    color: var(--sky);
+}
+
+#contact a:hover {
+    color: var(--white);
+}
+
+
+/* ---------------------------------------------------------
+   11. WEB RESPONSIVE (mobile first)
+   The rules above are the mobile layout (one column).
+   From 768px the page uses a two-column grid.
+   --------------------------------------------------------- */
+@media only screen and (min-width: 768px) {
+    #page {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    #sidebar {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    #content {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    #footer {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    #identity {
+        text-align: left;
+    }
+
+    #content section {
+        padding: calc(var(--base-space) * 4) calc(var(--base-space) * 5) 0;
+    }
+
+    #menu ul {
+        padding: var(--base-space) calc(var(--base-space) * 5);
+    }
+}
