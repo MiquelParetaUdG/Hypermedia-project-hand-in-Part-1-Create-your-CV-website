@@ -32,7 +32,7 @@ The website is designed for two main audiences who need to assess the candidate 
 
 | | |
 |---|---|
-| **Age / location** | 34, Barcelona |
+| **Age / location** | 34, Figueres |
 | **Role** | Talent acquisition specialist at a digital marketing agency |
 | **Tech comfort** | High; reviews many profiles and often uses a phone |
 | **Goal** | Shortlist candidates who match a job description and prepare for interviews |
